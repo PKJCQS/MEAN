@@ -1,0 +1,52 @@
+<div class="block-header">
+  <h2>
+    Classrooms List <small>{{ classroom.name ? "Edit" : "Add" }} Classroom</small>
+  </h2>
+</div>
+<!-- Basic Validation -->
+<div class="row clearfix">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="card">
+      <div class="header">
+        <h2>Classroom Details</h2>
+      </div>
+      <div class="body">
+        <form id="form_validation" method="POST" (ngSubmit)="saveClassroom($event)">
+
+          <div class="form-group form-float">
+            <mat-input-container>
+              <input matInput="" placeholder="Classroom Name" name="name" [(ngModel)]="classroom.name"  required >
+            </mat-input-container>
+          </div>
+          <div class="form-group form-float">
+            <mat-form-field>
+              <mat-select placeholder="Select school"  name="school" [(ngModel)]="classroom.school">
+                <mat-option *ngFor="let option of options" [value]="option._id">
+                  {{ option.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="form-group form-float">
+            <mat-form-field>
+              <mat-select placeholder="Select gateway"  name="gateway" [(ngModel)]="classroom.gateway">
+                <mat-option  *ngFor="let gateway1 of gateways" [value]="gateway1._id" >
+                  {{ gateway1.mac.toUpperCase() }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="form-group form-float">
+            <mat-slide-toggle
+                    name="isActive" [(ngModel)]="classroom.isActive" [checked]="classroom.isActive" [color]="color"
+            >
+              Status
+            </mat-slide-toggle>
+          </div>
+          <button class="btn btn-primary waves-effect" type="submit">SAVE CLASSROOM</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- #END# Basic Validation -->

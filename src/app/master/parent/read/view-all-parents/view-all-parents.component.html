@@ -1,0 +1,80 @@
+
+<div class="block-header">
+  <h2>
+    Parents List
+  </h2>
+</div>
+<!-- Exportable Table -->
+<div class="row clearfix">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="card">
+      <div class="header">
+        <h2>PARENTS</h2>
+        <ul class="header-dropdown m-r--5">
+          <li class="dropdown"><a href="javascript:void(0);"
+                                  class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                  aria-haspopup="true" aria-expanded="false"> <i
+                  class="material-icons">more_vert</i>
+          </a>
+            <ul class="dropdown-menu pull-right">
+              <li><a [routerLink]="['../add-new']">Add Parent</a></li>
+            </ul></li>
+        </ul>
+      </div>
+      <div class="body">
+        <div class="table-responsive">
+          <table
+                  class="table table-bordered table-striped table-hover dataTable js-exportable">
+            <thead>
+            <tr>
+              <th *ngFor="let c of columns" [class.address-th]="c.key =='address'">
+                <div *ngIf="c.isSortable" (click)="SortBy(c.key)" class="sorting-column">
+                  {{ c.title }}
+                  <i *ngIf="query.sortBy === c.key" class="material-icons">{{query.isSortAscending === -1 ?  'keyboard_arrow_down' : 'keyboard_arrow_up'}}</i>
+                </div>
+                <div *ngIf="!c.isSortable">
+                  {{ c.title }}
+                </div>
+              </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let parent of parents; let i=index">
+              <td>{{(pageSize* pageIndex)+i+1}}</td>
+              <td>{{parent.name}}</td>
+              <td>{{parent.email}}</td>
+              <td>{{parent.aadhar}}</td>
+              <td>{{parent.address}}</td>
+              <td>{{parent.mobile}}</td>
+              <td>{{parent.school.name}}</td>
+              <td>{{parent.pitStop}}</td>
+              <td>
+                <mat-slide-toggle
+                        name="isActive" [(ngModel)]="parent.isActive" [checked]="parent.isActive" [color]="color"
+                        (change)="changeStatus($event, parent)"
+                >
+                </mat-slide-toggle>
+              </td>
+              <td>
+                <a [routerLink]="['../edit/', parent._id]"><i _ngcontent-c2="" class="material-icons">edit</i> </a>
+                <a (click)='deleteParent( [parent._id] )' class="delete"><i _ngcontent-c2="" class="material-icons">delete</i> </a>
+              </td>
+
+            </tr>
+            <tr *ngIf="parents?.length == 0">
+              <td colspan="9" align="center">No data found!</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <mat-paginator [length]="pages"
+                       [pageIndex]="pageIndex"
+                       [pageSize]="pageSize"
+                       [pageSizeOptions]="pageSizeOptions"
+                       (page)="pageEvent = setPageData($event)">
+        </mat-paginator>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- #END# Exportable Table -->

@@ -1,0 +1,70 @@
+<div class="block-header">
+  <h2>
+    Drivers List <small>{{ driver.name ? "Edit" : "Add" }} Driver</small>
+  </h2>
+</div>
+<!-- Basic Validation -->
+<div class="row clearfix">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="card">
+      <div class="header">
+        <h2>Driver Details</h2>
+      </div>
+      <div class="body">
+        <form id="form_validation" method="POST" (ngSubmit)="saveDriver($event)">
+
+          <div class="form-group form-float">
+            <mat-input-container>
+              <input matInput="" placeholder="Driver Name" name="name" [(ngModel)]="driver.name"  required >
+            </mat-input-container>
+          </div>
+          <div class="form-group form-float">
+            <mat-input-container>
+              <input matInput="" placeholder="Username" name="username" [(ngModel)]="driver.username"  required >
+            </mat-input-container>
+          </div>
+          <div class="form-group form-float">
+            <mat-input-container>
+              <input matInput="" placeholder="Email" name="email" [(ngModel)]="driver.email"  required >
+            </mat-input-container>
+          </div>
+          <div class="form-group form-float">
+            <mat-input-container>
+              <input matInput="" placeholder="License No" name="licenseNo" [(ngModel)]="driver.licenseNo"  required >
+            </mat-input-container>
+          </div>
+            <div class="form-group form-float">
+                <mat-input-container>
+                    <input matInput="" placeholder="Mobile No" name="mobileNo" [(ngModel)]="driver.mobileNo"  required >
+                </mat-input-container>
+            </div>
+          <div class="form-group form-float">
+            <mat-form-field>
+              <mat-select placeholder="Select school"  name="school" [(ngModel)]="driver.school" required="">
+                <mat-option *ngFor="let option of options" [value]="option._id">
+                  {{ option.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+          </div>
+            <div class="form-group form-float">
+                <mat-input-container>
+                    <input matInput="" placeholder="Driver Password" name="password" [(ngModel)]="driver.password"  [required]="!driver._id ? true : null " >
+                </mat-input-container>
+            </div>
+          <div class="form-group form-float">
+            <!--<mat-input-container>-->
+            <mat-slide-toggle
+                    name="isActive" [(ngModel)]="driver.isActive" [checked]="driver.isActive" [color]="color"
+            >
+              Status
+            </mat-slide-toggle>
+          </div>
+          <button class="btn btn-primary waves-effect" type="submit">SAVE DRIVER</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- #END# Basic Validation -->

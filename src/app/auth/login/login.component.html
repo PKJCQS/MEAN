@@ -1,0 +1,50 @@
+<div class="login-box">
+    <div class="logo">
+        <a href="javascript:void(0);">Admin<b>Smartymove</b></a>
+        <small>School Security System</small>
+    </div>
+    <div class="card">
+        <div class="body">
+            <form id="sign_in" method="POST" (submit)="stopDefaultSubmit(this)">
+                <div class="msg">Sign in to start your session</div>
+                <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">person</i>
+                        </span>
+
+                    <mat-input-container>
+                        <input matInput="" name="username" #username placeholder="Username" required autofocus>
+                    </mat-input-container>
+
+
+                </div>
+                <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">lock</i>
+                        </span>
+                    <mat-input-container>
+                        <input type="password" matInput="" #password name="password" placeholder="Password" required>
+                    </mat-input-container>
+                </div>
+                <div class="row">
+                    <div class="col-xs-8 p-t-5">
+                        <mat-checkbox>Remember Me!</mat-checkbox>
+                    </div>
+                    <div class="col-xs-4">
+                        <button mat-button="" type="submit" (click)="submitLogin(username.value,password.value)">SIGN
+                            IN
+                        </button>
+                    </div>
+                </div>
+                <div class="row m-t-15 m-b--20">
+                    <div class="col-xs-6">
+                        <a href="sign-up.html">Register Now!</a>
+                    </div>
+                    <div class="col-xs-6 align-right">
+                        <a href="forgot-password.html">Forgot Password?</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

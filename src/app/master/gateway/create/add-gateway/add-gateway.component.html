@@ -1,0 +1,96 @@
+
+<div class="block-header">
+  <h2>
+    Gateways List <small>{{ gateway.name ? "Edit" : "Add" }} Gateway</small>
+  </h2>
+</div>
+<!-- Basic Validation -->
+<div class="row clearfix">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="card">
+      <div class="header">
+        <h2>Gateway Details</h2>
+      </div>
+      <div class="body">
+        <form id="form_validation" method="POST" (ngSubmit)="saveGateway($event)">
+
+          <div class="form-group form-float">
+            <mat-input-container>
+              <input matInput="" placeholder="Gateway Name" name="name" [(ngModel)]="gateway.name"  required >
+            </mat-input-container>
+          </div>
+          <div class="form-group form-float">
+              <mat-input-container>
+                <input matInput="" placeholder="Gateway Location" name="location" [(ngModel)]="gateway.location"  required >
+              </mat-input-container>
+          </div>
+          <div class="form-group form-float">
+            <mat-input-container>
+              <input matInput="" placeholder="Gateway MAC" name="mac" [(ngModel)]="gateway.mac"  required >
+            </mat-input-container>
+          </div>
+          <div class="form-group form-float">
+            <mat-input-container>
+                <input matInput="" placeholder="Gateway IP" name="ip" [(ngModel)]="gateway.ip"  class="ip" required >
+            </mat-input-container>
+          </div>
+            <div class="form-group form-float">
+                <!--<select class="form-control show-tick selectpicker" name="school" [(ngModel)]="idcard.school" data-live-search="true">
+                  <option *ngFor="let option of options" [value]="option._id">{{ option.name }}</option>
+                </select>-->
+                <mat-form-field>
+                    <mat-select placeholder="Select school"  name="school" [(ngModel)]="gateway.school">
+                        <mat-option *ngFor="let option of options" [value]="option._id">
+                            {{ option.name }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+            </div>
+            <div class="form-group form-float">
+                <mat-input-container>
+                    <input matInput="" placeholder="Gateway WIFI Name" name="wifiUsername" [(ngModel)]="gateway.wifiname"  required >
+                </mat-input-container>
+            </div>
+            <div class="form-group form-float">
+                <mat-input-container>
+                    <input matInput="" placeholder="Gateway WIFI Password" name="wifiPassword" [(ngModel)]="gateway.wifiPassword"  required >
+                </mat-input-container>
+            </div>
+            <div class="form-group form-float">
+                <mat-input-container>
+                    <input matInput="" placeholder="Gateway Username" name="gatewayUsername" [(ngModel)]="gateway.gatewayUsername"  required >
+                </mat-input-container>
+            </div>
+            <div class="form-group form-float">
+                <mat-input-container>
+                    <input matInput="" placeholder="Gateway Password" name="gatewayPassword" [(ngModel)]="gateway.gatewayPassword"  required >
+                </mat-input-container>
+            </div>
+            <div class="form-group form-float">
+                <mat-input-container>
+                    <input matInput="" type="number" placeholder="Gateway Reading Capicity( in Meeters )" name="readingDistance" [(ngModel)]="gateway.readingDistance"   >
+                </mat-input-container>
+            </div>
+
+            <div class="form-group form-float">
+                <!--<mat-input-container>-->
+                    <mat-slide-toggle
+                            name="isActive" [(ngModel)]="gateway.isActive" [checked]="gateway.isActive" [color]="color"
+                            >
+                        Status
+                    </mat-slide-toggle>
+                <!--</mat-input-container>-->
+                <!--<span>Status</span>
+                <div class="switch">
+                    <label><input type="checkbox" name="isActive" [(ngModel)]="gateway.isActive" [checked]="gateway.isActive" ><span class="lever"></span></label>
+                </div>-->
+            </div>
+
+          <button class="btn btn-primary waves-effect" type="submit">SAVE GATEWAY</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- #END# Basic Validation -->

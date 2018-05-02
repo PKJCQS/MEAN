@@ -1,0 +1,90 @@
+
+<div class="block-header">
+  <h2>
+    Parents List <small>{{ parent.name ? "Edit" : "Add" }} Parent</small>
+  </h2>
+</div>
+<!-- Basic Validation -->
+<div class="row clearfix">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="card">
+      <div class="header">
+        <h2>Parent Details</h2>
+      </div>
+      <div class="body">
+        <form id="form_validation" method="POST" (ngSubmit)="saveParent($event)">
+
+          <div class="form-group form-float">
+            <mat-input-container>
+              <input matInput="" placeholder="Parent Name" name="name" [(ngModel)]="parent.name"  required >
+            </mat-input-container>
+          </div>
+          <div class="form-group form-float">
+            <mat-input-container>
+              <input matInput="" placeholder="Parent username" name="username" [(ngModel)]="parent.username"  required >
+            </mat-input-container>
+          </div>
+            <div class="form-group form-float">
+                <mat-input-container>
+                    <input matInput="" placeholder="Parent email" name="email" [(ngModel)]="parent.email"  required >
+                </mat-input-container>
+            </div>
+            <div class="form-group form-float">
+                <mat-input-container>
+                    <input matInput="" placeholder="Parent aadhar" name="aadhar" [(ngModel)]="parent.aadhar"  required >
+                </mat-input-container>
+            </div>
+            <div class="form-group form-float">
+                <mat-input-container>
+                    <input matInput="" placeholder="Parent mobile" name="mobile" [(ngModel)]="parent.mobile"  required >
+                </mat-input-container>
+            </div>
+          <div class="form-group form-float">
+            <mat-input-container>
+              <input matInput="" type="password" placeholder="Password" id="password" name="password" [(ngModel)]="parent.password"  [required]="!parent._id ? true : null">
+            </mat-input-container>
+          </div>
+          <div class="form-group form-float">
+            <mat-input-container>
+              <input matInput="" placeholder="Parent Address" autocomplete="off" name="address" autocapitalize="off" spellcheck="off" #search [(ngModel)]="parent.address"  required>
+            </mat-input-container>
+          </div>
+            <div class="form-group form-float">
+                <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false"  [draggable]="true" [zoom]="zoom">
+                    <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+                </agm-map>
+            </div>
+            <div class="form-group form-float">
+                <mat-input-container>
+                    <input matInput="" placeholder="Parent Pit stop Address" autocomplete="off" name="pitStop" autocapitalize="off" spellcheck="off" #search1 [(ngModel)]="parent.pitStop"  required>
+                </mat-input-container>
+            </div>
+            <div class="form-group form-float">
+                <agm-map [latitude]="latitude1" [longitude]="longitude1" [scrollwheel]="false"  [draggable]="true" [zoom]="zoom1">
+                    <agm-marker [latitude]="latitude1" [longitude]="longitude1"></agm-marker>
+                </agm-map>
+            </div>
+            <div class="form-group form-float">
+                <mat-form-field>
+                    <mat-select placeholder="Select school"  name="school" [(ngModel)]="parent.school">
+                        <mat-option *ngFor="let option of options" [value]="option._id">
+                            {{ option.name }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="form-group form-float">
+                <!--<mat-input-container>-->
+                <mat-slide-toggle
+                        name="isActive" [(ngModel)]="parent.isActive" [checked]="parent.isActive" [color]="color"
+                >
+                    Status
+                </mat-slide-toggle>
+            </div>
+          <button class="btn btn-primary waves-effect" type="submit">SAVE PARENT</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- #END# Basic Validation -->

@@ -1,0 +1,90 @@
+<div class="block-header">
+  <h2>
+    Teachers List <small>{{ teacher.name ? "Edit" : "Add" }} Teacher</small>
+  </h2>
+</div>
+<!-- Basic Validation -->
+<div class="row clearfix">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="card">
+      <div class="header">
+        <h2>Teacher Details</h2>
+      </div>
+      <div class="body">
+        <form id="form_validation" method="POST" (ngSubmit)="saveTeacher($event)">
+
+          <div class="form-group form-float">
+            <mat-input-container>
+              <input matInput="" placeholder="Teacher First Name" name="firstName" [(ngModel)]="teacher.firstName"  required >
+            </mat-input-container>
+          </div>
+          <div class="form-group form-float">
+            <mat-input-container>
+              <input matInput="" placeholder="Teacher Last Name" name="lastName" [(ngModel)]="teacher.lastName"  required >
+            </mat-input-container>
+          </div>
+            <div class="form-group form-float">
+                <mat-input-container>
+                    <input matInput="" placeholder="Email" name="email" [(ngModel)]="teacher.email"  required >
+                </mat-input-container>
+            </div>
+            <div class="form-group form-float">
+                <mat-input-container>
+                    <input matInput="" placeholder="Contact No." name="mobile" [(ngModel)]="teacher.mobile"  required >
+                </mat-input-container>
+            </div>
+            <div class="form-group form-float">
+                <mat-form-field>
+                    <mat-select placeholder="Select Idcard"  name="idcard" [(ngModel)]="teacher.idcard">
+                        <mat-option *ngFor="let idCard of idCards" [value]="idCard._id">
+                            {{ idCard.uuid }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+            </div>
+            <div class="form-group form-float">
+                <mat-input-container>
+                    <input matInput="" type="password" placeholder="Password" name="password" [(ngModel)]="teacher.password"  [required]="!teacher._id ? true : null " >
+                </mat-input-container>
+            </div>
+            <div class="form-group form-float">
+                <mat-form-field>
+                    <mat-select placeholder="Select subjects"  name="subjects" [(ngModel)]="teacher.subjects" multiple>
+                        <mat-option *ngFor="let option of options" [value]="option._id">
+                            {{ option.name }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+            </div>
+            <div class="form-group form-float">
+                <mat-form-field>
+                    <mat-select placeholder="Select school"  name="school" [(ngModel)]="teacher.school">
+                        <mat-option *ngFor="let school of schools" [value]="school._id">
+                            {{ school.name }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+            </div>
+            <div class="form-group form-float">
+                <mat-input-container>
+                    <textarea matInput="" placeholder="Teacher Address" name="address" autocapitalize="off" spellcheck="off" [(ngModel)]="teacher.address"  required></textarea>
+                </mat-input-container>
+            </div>
+            <div class="form-group form-float">
+                <mat-slide-toggle
+                        name="isActive" [(ngModel)]="teacher.isActive" [checked]="teacher.isActive" [color]="color"
+                >
+                    Status
+                </mat-slide-toggle>
+
+            </div>
+          <button class="btn btn-primary waves-effect" type="submit">SAVE TEACHER</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- #END# Basic Validation -->

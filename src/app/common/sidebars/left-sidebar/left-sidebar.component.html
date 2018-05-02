@@ -1,0 +1,159 @@
+<!-- Left Sidebar -->
+<aside id="leftsidebar" class="sidebar">
+	<!-- User Info -->
+	<div class="user-info">
+		<div class="image">
+			<img src="./assets/images/user.png" width="48" height="48" alt="User" />
+		</div>
+		<div class="info-container">
+			<div class="name" data-toggle="dropdown" aria-haspopup="true"
+				aria-expanded="false">{{Name}}</div>
+			<div class="email">{{userEmail}}</div>
+			<div class="btn-group user-helper-dropdown">
+				<i class="material-icons" data-toggle="dropdown"
+					aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
+				<ul class="dropdown-menu pull-right">
+					<li><a [routerLink]="['user/profile']"><i
+							class="material-icons">person</i>Profile</a></li>
+					<li role="seperator" class="divider"></li>
+					<li><a href="javascript:void(0);"><i
+							class="material-icons">group</i>Followers</a></li>
+					<li><a href="javascript:void(0);"><i
+							class="material-icons">shopping_cart</i>Sales</a></li>
+					<li><a href="javascript:void(0);"><i
+							class="material-icons">favorite</i>Likes</a></li>
+					<li role="seperator" class="divider"></li>
+					<li><a href="javascript:void(0);"><i
+							class="material-icons">input</i>Sign Out</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- #User Info -->
+	<!-- Menu -->
+	<div class="menu">
+		<ul class="list">
+			<li class="header">MAIN NAVIGATION</li>
+			<li><a [routerLink]="['']"> <i class="material-icons">home</i>
+					<span>Home</span>
+			</a></li>
+			<li><a href="javascript:void(0);" class="menu-toggle"> <i
+					class="material-icons">folder</i> <span>Master</span>
+			</a>
+				<ul class="ml-menu">
+					<li><a href="javascript:void(0);" class="menu-toggle"> <i
+							class="material-icons">folder</i> <span>Schools</span>
+					</a>
+						<ul class="ml-menu">
+							<li><a [routerLink]="['master/school/add-new']">Add New</a></li>
+							<li><a [routerLink]="['master/school/view-all']">View All</a></li>
+						</ul>
+					</li>
+					<li><a href="javascript:void(0);" class="menu-toggle"> <i
+							class="material-icons">folder</i> <span>Gateway</span>
+					</a>
+						<ul class="ml-menu">
+							<li><a [routerLink]="['master/gateway/add-new']">Add Gateway</a></li>
+							<li><a [routerLink]="['master/gateway/view-all']">View Gateways</a></li>
+						</ul>
+					</li>
+					<li><a href="javascript:void(0);" class="menu-toggle"> <i
+							class="material-icons">folder</i> <span>Idcards</span>
+					</a>
+						<ul class="ml-menu">
+							<li><a [routerLink]="['master/idcard/add-new']">Add Idcard</a></li>
+							<li><a [routerLink]="['master/idcard/view-all']">View Idcards</a></li>
+						</ul>
+					</li>
+					<li><a href="javascript:void(0);" class="menu-toggle"> <i
+							class="material-icons">folder</i> <span>Classrooms</span>
+					</a>
+						<ul class="ml-menu">
+							<li><a [routerLink]="['master/classroom/add-new']">Add classroom</a></li>
+							<li><a [routerLink]="['master/classroom/view-all']">View classrooms</a></li>
+						</ul>
+					</li>
+                    <li><a href="javascript:void(0);" class="menu-toggle"> <i
+                            class="material-icons">folder</i> <span>Subjects</span>
+                    </a>
+                        <ul class="ml-menu">
+                            <li><a [routerLink]="['master/subject/add-new']">Add Subject</a></li>
+                            <li><a [routerLink]="['master/subject/view-all']">View Subjects</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="javascript:void(0);" class="menu-toggle"> <i
+                            class="material-icons">folder</i> <span>Teachers</span>
+                    </a>
+                        <ul class="ml-menu">
+                            <li><a [routerLink]="['master/teacher/add-new']">Add Teacher</a></li>
+                            <li><a [routerLink]="['master/teacher/view-all']">View Teachers</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="javascript:void(0);" class="menu-toggle"> <i
+                            class="material-icons">folder</i> <span>Parents</span>
+                    </a>
+                        <ul class="ml-menu">
+                            <li><a [routerLink]="['master/parent/add-new']">Add Parent</a></li>
+                            <li><a [routerLink]="['master/parent/view-all']">View Parents</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="javascript:void(0);" class="menu-toggle"> <i
+                            class="material-icons">folder</i> <span>Pickups</span>
+                    </a>
+                        <ul class="ml-menu">
+                            <li><a [routerLink]="['master/pickup/add-new']">Add Pickup</a></li>
+                            <li><a [routerLink]="['master/pickup/view-all']">View Pickups</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="javascript:void(0);" class="menu-toggle"> <i
+                            class="material-icons">folder</i> <span>Students</span>
+                    </a>
+                        <ul class="ml-menu">
+                            <li><a [routerLink]="['master/student/add-new']">Add Student</a></li>
+                            <li><a [routerLink]="['master/student/view-all']">View Students</a></li>
+                        </ul>
+                    </li>
+					<li>
+						<a href="javascript:void(0);" class="menu-toggle"> <i
+							class="material-icons">folder</i> <span>Routes</span>
+					    </a>
+						<ul class="ml-menu">
+							<li><a [routerLink]="['master/route/add-new']">Add Route</a></li>
+							<li><a [routerLink]="['master/route/view-all']">View Routes</a></li>
+						</ul>
+					</li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle"> <i
+                                class="material-icons">folder</i> <span>Drivers</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li><a [routerLink]="['master/driver/add-new']">Add Driver</a></li>
+                            <li><a [routerLink]="['master/driver/view-all']">View Drivers</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle"> <i
+                                class="material-icons">folder</i> <span>Buses</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li><a [routerLink]="['master/bus/add-new']">Add Bus</a></li>
+                            <li><a [routerLink]="['master/bus/view-all']">View Buses</a></li>
+                        </ul>
+                    </li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<!-- #Menu -->
+	<!-- Footer -->
+	<div class="legal">
+		<div class="copyright">
+			&copy; 2017 - 2018 <a href="javascript:void(0);">Mentation - SMS</a>.
+		</div>
+		<div class="version">
+			<b>Version: </b> 1.0.5
+		</div>
+	</div>
+	<!-- #Footer -->
+</aside>
+<!-- #END# Left Sidebar -->

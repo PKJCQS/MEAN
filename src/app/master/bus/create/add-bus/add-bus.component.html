@@ -1,0 +1,66 @@
+<div class="block-header">
+  <h2>
+    Buss List <small>{{ bus.name ? "Edit" : "Add" }} Bus</small>
+  </h2>
+</div>
+<!-- Basic Validation -->
+<div class="row clearfix">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="card">
+      <div class="header">
+        <h2>Bus Details</h2>
+      </div>
+      <div class="body">
+        <form id="form_validation" method="POST" (ngSubmit)="saveBus($event)">
+
+          <div class="form-group form-float">
+            <mat-input-container>
+              <input matInput="" placeholder="Bus No" name="busNo" [(ngModel)]="bus.busNo"  required >
+            </mat-input-container>
+          </div>
+          <div class="form-group form-float">
+            <mat-form-field>
+              <mat-select placeholder="Select Driver"  name="driver" [(ngModel)]="bus.driver">
+                <mat-option *ngFor="let d of drivers" [value]="d._id">
+                  {{ d.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+          </div>
+          <div class="form-group form-float">
+            <mat-form-field>
+              <mat-select placeholder="Select Route"  name="route" [(ngModel)]="bus.route">
+                <mat-option *ngFor="let r of routes" [value]="r._id">
+                  {{ r.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+          </div>
+          <div class="form-group form-float">
+            <mat-form-field>
+              <mat-select placeholder="Select school"  name="school" [(ngModel)]="bus.school">
+                <mat-option *ngFor="let option of options" [value]="option._id">
+                  {{ option.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+          </div>
+
+          <div class="form-group form-float">
+            <!--<mat-input-container>-->
+            <mat-slide-toggle
+                    name="isActive" [(ngModel)]="bus.isActive" [checked]="bus.isActive" [color]="color"
+            >
+              Status
+            </mat-slide-toggle>
+          </div>
+          <button class="btn btn-primary waves-effect" type="submit">SAVE IDCARD</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- #END# Basic Validation -->
